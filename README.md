@@ -13,9 +13,9 @@ the service for android and ios. This project is still under development
 
 ## Built With
 
-* Flutter
+* Java
+* JavaFX
 * MySql
-* PhP
 
 ## Collaborators
 
