@@ -16,13 +16,13 @@ This is a CSE299 junior project design repo. We are creating a software for dist
 * JavaFX
 * MySql
 
-## Used Libraries
+## Used Libraries and APIs
 
-* JFoenix
-* Java jdbc driver
-* Google 2.0 OAuth Library
-* Google Maps Library
-* Java Mail Library
+* [JFoenix](http://www.jfoenix.com/)
+* [MySql Connector](https://dev.mysql.com/downloads/connector/j/)
+* [Google 2.0 OAuth Api](https://console.developers.google.com/)
+* [Google Maps Api](https://console.developers.google.com/)
+* [Java Mail Library](https://javaee.github.io/javamail/)
 
 ## Collaborators
 
