@@ -1,6 +1,10 @@
 # Project Title
 
-BASHA VARA CHAI
+Tenant Portal
+
+## Project Description
+
+This is a basic home renting application.
 
 ## Getting Started
 
