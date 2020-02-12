@@ -1,0 +1,14 @@
+
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: #2C2F33 ;
+}
+
+.jfx-text-field, .jfx-password-field {
+    -fx-prompt-text-fill: WHITE;
+    -jfx-focus-color: WHITE;
+    -jfx-unfocus-color: WHITE;
+}
+.bodybg{
+    -fx-background-image: url('C:\Users\Hp\Documents\NetBeansProjects\Project299\Phouse.jpg');
+    -fx-background-size: 100% 100%;    
+  }
