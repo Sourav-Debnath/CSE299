@@ -14,32 +14,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700" prefWidth="700" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700" prefWidth="700" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <center>
-      <JFXTabPane style="-fx-background-color: #23272A;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <JFXTabPane style="-fx-background-color: #D8BFD8;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
          <tabs>
             <Tab closable="false" text="User Login">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="351.0" prefWidth="674.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="362.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
                            <children>
-                              <Pane prefHeight="384.0" prefWidth="354.0" style="-fx-background-color: #2C2F33; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-radius: 10; -fx-background-radius: 10;">
+                              <Pane prefHeight="384.0" prefWidth="354.0" style="-fx-background-color: #581845; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-radius: 10; -fx-background-radius: 10;">
                                  <children>
                                     <Text fill="WHITE" layoutX="116.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
                                     </Text>
-                                    <JFXTextField focusColor="#7289da" labelFloat="true" layoutX="47.0" layoutY="69.0" prefHeight="25.0" prefWidth="260.0" promptText="Email" unFocusColor="WHITE" />
-                                    <JFXPasswordField focusColor="#7289da" labelFloat="true" layoutX="47.0" layoutY="139.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" unFocusColor="WHITE" />
-                                    <JFXButton buttonType="RAISED" layoutX="143.0" layoutY="194.0" ripplerFill="#7289da" style="-fx-background-color: #7289DA;" text="Login" textFill="WHITE">
+                                    <JFXTextField fx:id="userEmail" focusColor="#7289da" labelFloat="true" layoutX="47.0" layoutY="69.0" prefHeight="25.0" prefWidth="260.0" promptText="Email" unFocusColor="WHITE" />
+                                    <JFXPasswordField fx:id="userPassword" focusColor="#7289da" labelFloat="true" layoutX="47.0" layoutY="139.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" unFocusColor="WHITE" />
+                                    <JFXButton buttonType="RAISED" layoutX="47.0" layoutY="193.0" onAction="#onUserLogin" prefHeight="39.0" prefWidth="260.0" ripplerFill="WHITE" style="-fx-background-color: #7289DA;" text="Login" textFill="WHITE">
                                        <font>
                                           <Font size="18.0" />
                                        </font></JFXButton>
-                                    <Hyperlink layoutX="126.0" layoutY="239.0" text="Forgot Password?" textFill="WHITE" underline="true" />
-                                    <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="295.0" style="-fx-background-color: #D44638;" text="Login With Gmail" textFill="WHITE" />
-                                    <Label layoutX="169.0" layoutY="269.0" text="OR" textFill="WHITE" />
+                                    <Label layoutX="168.0" layoutY="242.0" text="OR" textFill="WHITE" />
+                                    <Hyperlink layoutX="47.0" layoutY="301.0" onAction="#onForgotPassword" text="Forgot Password?" textFill="WHITE" underline="true" />
+                                    <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="265.0" onAction="#onUserGmailLogin" style="-fx-background-color: #D44638;" text="Login With Gmail" textFill="WHITE" />
+                                    <Hyperlink layoutX="47.0" layoutY="324.0" onAction="#onSignup" text="Don't Have an account? Sign up!" textFill="WHITE" underline="true" />
                                  </children>
                               </Pane>
                            </children>
@@ -52,25 +53,25 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="351.0" prefWidth="674.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="334.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
                            <children>
-                              <Pane prefHeight="384.0" prefWidth="354.0" style="-fx-background-color: #2C2F33; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-radius: 10; -fx-background-radius: 10;">
+                              <Pane prefHeight="384.0" prefWidth="354.0" style="-fx-background-color: #581845; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-radius: 10; -fx-background-radius: 10;">
                                  <children>
                                     <Text fill="WHITE" layoutX="103.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Login">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
                                     </Text>
-                                    <JFXTextField focusColor="#7289da" labelFloat="true" layoutX="47.0" layoutY="69.0" prefHeight="25.0" prefWidth="260.0" promptText="Email" unFocusColor="WHITE" />
-                                    <JFXPasswordField focusColor="#7289da" labelFloat="true" layoutX="47.0" layoutY="139.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" unFocusColor="WHITE" />
-                                    <JFXButton buttonType="RAISED" layoutX="143.0" layoutY="194.0" ripplerFill="#7289da" style="-fx-background-color: #7289DA;" text="Login" textFill="WHITE">
+                                    <JFXTextField fx:id="adminEmail" focusColor="#7289da" labelFloat="true" layoutX="47.0" layoutY="69.0" prefHeight="25.0" prefWidth="260.0" promptText="Email" unFocusColor="WHITE" />
+                                    <JFXPasswordField fx:id="adminPassword" focusColor="#7289da" labelFloat="true" layoutX="47.0" layoutY="139.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" unFocusColor="WHITE" />
+                                    <JFXButton buttonType="RAISED" layoutX="47.0" layoutY="193.0" onAction="#onAdminLogin" prefHeight="39.0" prefWidth="260.0" ripplerFill="WHITE" style="-fx-background-color: #7289DA;" text="Login" textFill="WHITE">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </JFXButton>
-                                    <Hyperlink layoutX="126.0" layoutY="239.0" text="Forgot Password?" textFill="WHITE" underline="true" />
-                                    <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="295.0" style="-fx-background-color: #D44638;" text="Login With Gmail" textFill="WHITE" />
-                                    <Label layoutX="169.0" layoutY="269.0" text="OR" textFill="WHITE" />
+                                    <Hyperlink layoutX="125.0" layoutY="297.0" onAction="#onForgotPassword" text="Forgot Password?" textFill="WHITE" underline="true" />
+                                    <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="265.0" onAction="#onAdminGmailLogin" style="-fx-background-color: #D44638;" text="Login With Gmail" textFill="WHITE" />
+                                    <Label layoutX="168.0" layoutY="242.0" text="OR" textFill="WHITE" />
                                  </children>
                               </Pane>
                            </children>
@@ -83,7 +84,7 @@
       </JFXTabPane>
    </center>
    <top>
-      <AnchorPane prefHeight="58.0" prefWidth="674.0" style="-fx-background-color: #7289DA;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="58.0" prefWidth="674.0" style="-fx-background-color: #20B2AA;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="26.0" layoutY="11.0" prefHeight="35.0" prefWidth="142.0" text="TenantPortal" AnchorPane.leftAnchor="26.0">
                <font>
