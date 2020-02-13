@@ -2,16 +2,16 @@ package tenantPortal;
 
 import java.sql.*;
 
-public class DB_Connection_Singleton {
-	private static DB_Connection_Singleton instance = new DB_Connection_Singleton();
+public class DBConnectionSingleton {
+	private static DBConnectionSingleton instance = new DBConnectionSingleton();
 	
-	private DB_Connection_Singleton(){}
+	private DBConnectionSingleton(){}
 
-	public static DB_Connection_Singleton getInstance() {
+	public static DBConnectionSingleton getInstance() {
 		return instance;
 	}
 	
-	public Connection get_connection(){
+	public Connection getConnection(){
 		Connection connection=null;
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
