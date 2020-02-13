@@ -12,9 +12,8 @@ import javafx.fxml.FXML;
 
 
 
-public class LoginController implements Initializable {
+public class LoginController extends ControllerBase implements Initializable {
 
-    private MainClass mainClass;
     @FXML
     private JFXTextField userEmail;
     @FXML
@@ -23,10 +22,6 @@ public class LoginController implements Initializable {
     private JFXTextField adminEmail;
     @FXML
     private JFXPasswordField adminPassword;
-
-    public void setMainClass(MainClass mainClass) {
-        this.mainClass = mainClass;
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,12 +52,12 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    public void onAdminGmailLogin(ActionEvent event) {
+    void onAdminGmailLogin(ActionEvent event) {
 
     }
 
     @FXML
-    public void onAdminLogin(ActionEvent event) {
+    void onAdminLogin(ActionEvent event) {
         if(adminEmail.validate() && adminPassword.validate()){
             //start query
         }else{
@@ -72,12 +67,12 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    public void onForgotPassword(ActionEvent event) {
-
+    void onForgotPassword(ActionEvent event) {
+        mainClass.loadForgotPasswordPage();
     }
 
     @FXML
-    public void onUserLogin(ActionEvent event) {
+    void onUserLogin(ActionEvent event) {
         if(userEmail.validate() && userPassword.validate()){
             //start query
         }else{
@@ -86,12 +81,12 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    public void onSignup(ActionEvent event) {
+    void onSignup(ActionEvent event) {
 
     }
 
     @FXML
-    public void onUserGmailLogin(ActionEvent event) {
+    void onUserGmailLogin(ActionEvent event) {
 
     }
 
