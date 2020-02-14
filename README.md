@@ -12,7 +12,7 @@ This is a CSE299 junior project design repo. We are creating a software for dist
 
 ## Built With
 
-* Java 9
+* [Java 9](https://jdk.java.net/9/)
 * JavaFX
 * MySql
 
@@ -22,7 +22,8 @@ This is a CSE299 junior project design repo. We are creating a software for dist
 * [MySql Connector](https://dev.mysql.com/downloads/connector/j/)
 * [Google 2.0 OAuth Api](https://console.developers.google.com/)
 * [Google Maps Api](https://console.developers.google.com/)
-* [Java Mail Library](https://javaee.github.io/javamail/)
+* [PHP Mailer](https://github.com/PHPMailer/PHPMailer)
+* [Java-json](http://www.java2s.com/Code/Jar/o/Downloadorgjsonjar.htm)
 
 ## Collaborators
 
