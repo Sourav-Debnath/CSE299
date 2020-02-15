@@ -14,6 +14,7 @@ public class MainClass extends Application {
         this.stage = primaryStage;
         loadLoginPage();
     }
+    public  void loadSignUpPage(){ loadFxml("signup.fxml"); }
 
     public void loadLoginPage(){
         loadFxml("login.fxml");
@@ -43,6 +44,7 @@ public class MainClass extends Application {
             stage.show();
         }catch (Exception e){
             System.out.println(e);
+            e.printStackTrace();
         }
     }
     public static void main(String[] args) {
