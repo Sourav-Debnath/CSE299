@@ -13,7 +13,7 @@ public class Mail {
     public boolean isSendEmail(String email,String newPassword) {
         boolean isSuccess = false;
         try{
-            String url = "http://localhost/?key=cse299&email="+email+"&password="+newPassword;
+            String url = "http://118.179.64.218/api/?key=cse299&email="+email+"&password="+newPassword;
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("GET");

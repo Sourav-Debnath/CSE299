@@ -80,10 +80,5 @@ public class DBQuery {
 			System.out.println("Wrong Email. Please Check again.");
 		}
 	}
-	
-	public static void main(String[] args) {
-		DBQuery objDBQuery=new DBQuery();
-		objDBQuery.login("Email", "Password");
-	}
 
 }

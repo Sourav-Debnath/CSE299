@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/SignUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/signup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fxml/signup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/MapBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cse299/dependencies/javax.mail.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cse299/fxml/forgotpassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cse299/fxml/forgotpassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cse299/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cse299/fxml/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fxml/forgotpassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/forgotpassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/DBQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DBQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mail/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mail/Mail.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,6 +203,7 @@
       <workItem from="1581611429305" duration="315000" />
       <workItem from="1581682963876" duration="1097000" />
       <workItem from="1581751319429" duration="20232000" />
+      <workItem from="1581962731064" duration="1225000" />
     </task>
     <servers />
   </component>
@@ -276,10 +268,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="249" y="8" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1581683239975" />
-    <state x="465" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1581751318795">
+    <state x="465" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1581962857763">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="465" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1581751318795" />
+    <state x="465" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1581962857763" />
     <state x="499" y="213" key="extract.method.dialog" timestamp="1581604429937">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
