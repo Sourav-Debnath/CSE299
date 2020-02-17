@@ -59,10 +59,31 @@ public class DBQuery {
 		}
 	}
 	
+	public void login(String Email,String Password) {
+		if(isEmailExists(Email)) {
+			String query="Select pass from user where email='"+Email+"'";
+			try {
+				PreparedStatement ps=con.prepareStatement(query);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				System.out.println(rs.getString("pass"));
+				if(rs.getString("pass").equals(Password)) {
+					System.out.println("Right Password");
+				}else {
+					System.out.println("Wrong Password");
+				}
+			}catch (Exception e) {
+				System.out.println(e);
+			}
+			
+		}else {
+			System.out.println("Wrong Email. Please Check again.");
+		}
+	}
+	
 	public static void main(String[] args) {
 		DBQuery objDBQuery=new DBQuery();
-		BigInteger bi=new BigInteger("12111111111111111");
-		objDBQuery.signUp(bi, "Name" , "ContactNo" , "Address" , "Image" , true, "Email" , "Pass");
+		objDBQuery.login("Email", "Password");
 	}
 
 }
