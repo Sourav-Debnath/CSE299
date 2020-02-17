@@ -53,7 +53,7 @@ public class DBQuery {
 		System.out.println(query);
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
-			ps.executeQuery();						    
+			ps.executeUpdate();						    
 		}catch (Exception e) {
 			System.out.println(e);
 		}
