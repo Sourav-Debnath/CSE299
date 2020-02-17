@@ -1,4 +1,4 @@
-package tenantPortal;
+package database;
 
 import java.sql.*;
 
