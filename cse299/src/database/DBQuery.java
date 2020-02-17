@@ -49,7 +49,7 @@ public class DBQuery {
 	
 	public void signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Image,Boolean ActiveStatus,String Email,String Pass) {
 		String query="INSERT INTO `user`(`Nid`, `Name`, `ContactNo`, `Address`, `Image`, `ActiveStatus`, `Email`, `Pass`) VALUES ("
-				+ Nid+","+Name+","+ContactNo+","+Address+","+Image+","+ActiveStatus+","+Email+","+Pass+")";
+				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\","+ActiveStatus+",\""+Email+"\",\""+Pass+"\")";
 		System.out.println(query);
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
