@@ -1,5 +1,6 @@
 package database;
 
+import java.math.BigInteger;
 import java.sql.*;
 
 public class DBQuery {
@@ -46,9 +47,22 @@ public class DBQuery {
 		}
 	}
 	
+	public void signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Image,Boolean ActiveStatus,String Email,String Pass) {
+		String query="INSERT INTO `user`(`Nid`, `Name`, `ContactNo`, `Address`, `Image`, `ActiveStatus`, `Email`, `Pass`) VALUES ("
+				+ Nid+","+Name+","+ContactNo+","+Address+","+Image+","+ActiveStatus+","+Email+","+Pass+")";
+		System.out.println(query);
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.executeQuery();						    
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
 	public static void main(String[] args) {
 		DBQuery objDBQuery=new DBQuery();
-		objDBQuery.resetPassword("mokles@hotmail.com");
+		BigInteger bi=new BigInteger("12111111111111111");
+		objDBQuery.signUp(bi, "Name" , "ContactNo" , "Address" , "Image" , true, "Email" , "Pass");
 	}
 
 }
