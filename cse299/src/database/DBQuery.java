@@ -47,19 +47,33 @@ public class DBQuery {
 		}
 	}
 	
-	public void signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Image,Boolean ActiveStatus,String Email,String Pass) {
-		String query="INSERT INTO `user`(`Nid`, `Name`, `ContactNo`, `Address`, `Image`, `ActiveStatus`, `Email`, `Pass`) VALUES ("
-				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\","+ActiveStatus+",\""+Email+"\",\""+Pass+"\")";
+	/*
+	 * this function can entry an user into the database
+	 * if there is no problem with duplication of same user the function returns "Insertion Successful"
+	 * else the function returns the problematic entry & key
+	 */
+	public String signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Image,String Email,String Pass) {
+		String message="Insertion Successful";
+		String query="INSERT INTO `user`(`Nid`, `Name`, `ContactNo`, `Address`, `Image`, `Email`, `Pass`) VALUES ("
+				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\",\""+Email+"\",\""+Pass+"\")";
 		System.out.println(query);
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.executeUpdate();						    
 		}catch (Exception e) {
-			System.out.println(e);
+			message=e.getMessage();
 		}
+		return message;
 	}
 	
-	public void login(String Email,String Password) {
+	/*
+	 * this function can check if the user is giving right email and password to log in.
+	 * if everything is right then it returns "Logged In"
+	 * if the email is wrong then it returns "Wrong Email"
+	 * if the password is wrong then it returns "Wrong Password"
+	 */
+	public String login(String Email,String Password) {
+		String flag=null;
 		if(isEmailExists(Email)) {
 			String query="Select pass from user where email='"+Email+"'";
 			try {
@@ -68,17 +82,19 @@ public class DBQuery {
 				rs.next();
 				System.out.println(rs.getString("pass"));
 				if(rs.getString("pass").equals(Password)) {
-					System.out.println("Right Password");
+					flag="Logged In";
 				}else {
-					System.out.println("Wrong Password");
+					flag="Wrong Password";
 				}
 			}catch (Exception e) {
 				System.out.println(e);
 			}
 			
 		}else {
-			System.out.println("Wrong Email. Please Check again.");
+			flag="Wrong Email";
 		}
+		return flag;
 	}
+
 
 }
