@@ -1,5 +1,7 @@
 package controller;
 
+import database.DBQuery;
+import javafx.scene.control.Label;
 import main.MainClass;
 import com.jfoenix.validation.RegexValidator;
 import javafx.event.ActionEvent;
@@ -14,6 +16,10 @@ import javafx.fxml.FXML;
 
 public class LoginController extends ControllerBase implements Initializable {
 
+    @FXML
+    private Label errorMessageUser;
+    @FXML
+    private Label errorMessageAdmin;
     @FXML
     private JFXTextField userEmail;
     @FXML
@@ -39,7 +45,7 @@ public class LoginController extends ControllerBase implements Initializable {
     @FXML
     void onAdminLogin(ActionEvent event) {
         if(adminEmail.validate() && adminPassword.validate()){
-            //start query
+
         }
     }
 
@@ -51,9 +57,13 @@ public class LoginController extends ControllerBase implements Initializable {
     @FXML
     void onUserLogin(ActionEvent event) {
         if(userEmail.validate() && userPassword.validate()){
-            //start query
-        }else{
-            //dont start query
+            DBQuery db = new DBQuery();
+            String loginText = db.login(userEmail.getText(),userPassword.getText());
+            if(loginText.equals("Logged In")){
+                //Todo
+            }else{
+                errorMessageUser.setText(loginText);
+            }
         }
     }
 

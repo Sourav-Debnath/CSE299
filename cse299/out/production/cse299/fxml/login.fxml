@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1024" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1024" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <center>
       <JFXTabPane style="-fx-background-color: #D8BFD8;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
          <tabs>
@@ -22,7 +22,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="362.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="383.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
                            <children>
                               <Pane prefHeight="384.0" prefWidth="354.0" style="-fx-background-color: #581845; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-radius: 10; -fx-background-radius: 10;">
                                  <children>
@@ -38,9 +38,10 @@
                                           <Font size="18.0" />
                                        </font></JFXButton>
                                     <Label layoutX="168.0" layoutY="242.0" text="OR" textFill="WHITE" />
-                                    <Hyperlink layoutX="47.0" layoutY="301.0" onAction="#onForgotPassword" text="Forgot Password?" textFill="WHITE" underline="true" />
+                                    <Hyperlink layoutX="47.0" layoutY="323.0" onAction="#onForgotPassword" text="Forgot Password?" textFill="WHITE" underline="true" />
                                     <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="265.0" onAction="#onUserGmailLogin" style="-fx-background-color: #D44638;" text="Login With Gmail" textFill="WHITE" />
-                                    <Hyperlink layoutX="47.0" layoutY="324.0" onAction="#onSignup" text="Don't Have an account? Sign up!" textFill="WHITE" underline="true" />
+                                    <Hyperlink layoutX="47.0" layoutY="346.0" onAction="#onSignup" text="Don't Have an account? Sign up!" textFill="WHITE" underline="true" />
+                                    <Label fx:id="errorMessageUser" alignment="CENTER" contentDisplay="CENTER" layoutX="129.0" layoutY="298.0" prefHeight="17.0" prefWidth="94.0" textFill="RED" />
                                  </children>
                               </Pane>
                            </children>
@@ -53,7 +54,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="334.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="355.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
                            <children>
                               <Pane prefHeight="384.0" prefWidth="354.0" style="-fx-background-color: #581845; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-border-radius: 10; -fx-background-radius: 10;">
                                  <children>
@@ -69,9 +70,10 @@
                                           <Font size="18.0" />
                                        </font>
                                     </JFXButton>
-                                    <Hyperlink layoutX="125.0" layoutY="297.0" onAction="#onForgotPassword" text="Forgot Password?" textFill="WHITE" underline="true" />
+                                    <Hyperlink layoutX="125.0" layoutY="318.0" onAction="#onForgotPassword" text="Forgot Password?" textFill="WHITE" underline="true" />
                                     <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="265.0" onAction="#onAdminGmailLogin" style="-fx-background-color: #D44638;" text="Login With Gmail" textFill="WHITE" />
                                     <Label layoutX="168.0" layoutY="242.0" text="OR" textFill="WHITE" />
+                                    <Label fx:id="errorMessageAdmin" alignment="CENTER" layoutX="128.0" layoutY="301.0" prefHeight="17.0" prefWidth="98.0" textFill="RED" />
                                  </children>
                               </Pane>
                            </children>
