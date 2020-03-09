@@ -3,15 +3,20 @@ package database;
 import java.math.BigInteger;
 import java.sql.*;
 
-public class DBQuery {
+public class DBQuerySingleton {
 	Connection con;
+	private static DBQuerySingleton instance = new DBQuerySingleton();
 	
 	//constructor
-	public DBQuery() {
-		DBConnectionSingleton objDBConnection=DBConnectionSingleton.getInstance();
+	private DBQuerySingleton() {
+		DBConnection objDBConnection=new DBConnection();
 		con=objDBConnection.getConnection();
 	}
 	
+	//getter
+	public static DBQuerySingleton getInstance() {
+		return instance;
+	}	
 	
 	public boolean isEmailExists(String email){
 		String query="Select id from user where email='"+email+"'";
@@ -45,6 +50,11 @@ public class DBQuery {
 				System.out.println(e);
 			}
 		}
+	}
+	
+	public String createPost() {
+		
+		return null;
 	}
 	
 	/*
@@ -96,5 +106,9 @@ public class DBQuery {
 		return flag;
 	}
 
-
+	public static void main(String[] args) {
+		BigInteger nid=new BigInteger("123456789101113");
+		DBQuerySingleton db=new DBQuerySingleton();
+		System.out.println(db.signUp(nid, "ruhul", "1234", "new address", "ruhul_image", "mr.email", "ruhul.pass"));
+	}
 }

@@ -2,14 +2,9 @@ package database;
 
 import java.sql.*;
 
-public class DBConnectionSingleton {
-	private static DBConnectionSingleton instance = new DBConnectionSingleton();
+public class DBConnection {
 	
-	private DBConnectionSingleton(){}
-
-	public static DBConnectionSingleton getInstance() {
-		return instance;
-	}
+	public DBConnection(){}
 	
 	public Connection getConnection(){
 		Connection connection=null;
