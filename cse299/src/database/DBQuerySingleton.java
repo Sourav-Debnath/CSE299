@@ -79,8 +79,7 @@ public class DBQuerySingleton {
 	/*
 	 * this function can check if the user is giving right email and password to log in.
 	 * if everything is right then it returns "Logged In"
-	 * if the email is wrong then it returns "Wrong Email"
-	 * if the password is wrong then it returns "Wrong Password"
+	 * if the email or password is wrong then it returns "Wrong Email or Password"
 	 */
 	public String login(String Email,String Password) {
 		String flag=null;
@@ -93,15 +92,13 @@ public class DBQuerySingleton {
 				System.out.println(rs.getString("pass"));
 				if(rs.getString("pass").equals(Password)) {
 					flag="Logged In";
-				}else {
-					flag="Wrong Password";
 				}
 			}catch (Exception e) {
 				System.out.println(e);
 			}
 			
 		}else {
-			flag="Wrong Email";
+			flag="Wrong Email or Password.";
 		}
 		return flag;
 	}
