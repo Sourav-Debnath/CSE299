@@ -8,7 +8,7 @@ public class DBQuerySingleton {
 	private static DBQuerySingleton instance = new DBQuerySingleton();
 	
 	//constructor
-	public DBQuerySingleton() {
+	private DBQuerySingleton() {
 		DBConnection objDBConnection=new DBConnection();
 		con=objDBConnection.getConnection();
 	}
