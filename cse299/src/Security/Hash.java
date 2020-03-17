@@ -1,4 +1,4 @@
-package Security;
+package security;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -19,5 +19,8 @@ public class Hash {
         catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+    }
+    public String getSHA1(){
+        return null;
     }
 }
