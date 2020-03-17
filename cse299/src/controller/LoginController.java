@@ -2,7 +2,6 @@ package controller;
 
 import database.DBQuerySingleton;
 import javafx.scene.control.Label;
-import main.MainClass;
 import com.jfoenix.validation.RegexValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
