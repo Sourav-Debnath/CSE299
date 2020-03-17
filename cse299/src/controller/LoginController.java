@@ -1,6 +1,6 @@
 package controller;
 
-import database.DBQuery;
+import database.DBQuerySingleton;
 import javafx.scene.control.Label;
 import main.MainClass;
 import com.jfoenix.validation.RegexValidator;
@@ -57,7 +57,7 @@ public class LoginController extends ControllerBase implements Initializable {
     @FXML
     void onUserLogin(ActionEvent event) {
         if(userEmail.validate() && userPassword.validate()){
-            DBQuery db = new DBQuery();
+            DBQuerySingleton db = DBQuerySingleton.getInstance();
             String loginText = db.login(userEmail.getText(),userPassword.getText());
             if(loginText.equals("Logged In")){
                 //Todo

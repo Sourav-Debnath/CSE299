@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
-import database.DBQuery;
+import database.DBQuerySingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import java.io.File;
@@ -68,7 +68,7 @@ public class SignUpController extends ControllerBase implements Initializable {
     @FXML
     private void onSingUp(ActionEvent event) {
         if(userName.validate() && userNid.validate() && userMobile.validate() && userAddress.validate() && userImage.validate() && userEmail.validate() && userPassword.validate()){
-            DBQuery db = new DBQuery();
+            DBQuerySingleton db = DBQuerySingleton.getInstance();
             String signupText = db.signUp(new BigInteger(userNid.getText()),userName.getText(),userMobile.getText(),userAddress.getText(),userImage.getText(),userEmail.getText(),userPassword.getText());
             if(signupText.equals("Insertion Successful")){
                 //Todo
