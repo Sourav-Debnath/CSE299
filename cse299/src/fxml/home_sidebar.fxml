@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" style="-fx-background-color: #D8BFD8;" stylesheets="@../css/signup.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
+   <top>
+      <AnchorPane prefHeight="58.0" prefWidth="674.0" style="-fx-background-color: #20B2AA;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="26.0" layoutY="11.0" prefHeight="35.0" prefWidth="142.0" text="TenantPortal" AnchorPane.leftAnchor="26.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane focusTraversable="true" prefHeight="662.0" prefWidth="1032.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="-4.0" layoutY="44.0" prefHeight="617.0" prefWidth="256.0" style="-fx-background-color: #708090; -fx-background-radius: 10;">
+               <children>
+                  <ImageView accessibleRole="CHECK_BOX" fitHeight="100.0" fitWidth="100.0" layoutX="78.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../profileImage.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="324.0" prefHeight="32.0" prefWidth="230.0" style="-fx-background-color: #708090;" stylesheets="@../css/profile.css" text="Notification &amp; Sound">
+                     <graphic>
+                        <Icon content="NOTIFICATIONS" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="356.0" prefHeight="32.0" prefWidth="230.0" style="-fx-background-color: #708090;" text="Account Settings">
+                     <graphic>
+                        <Icon content="SETTINGS" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="391.0" prefHeight="32.0" prefWidth="230.0" style="-fx-background-color: #708090;" text="Help">
+                     <graphic>
+                        <Icon content="HELP" />
+                     </graphic>
+                  </JFXButton>
+                  <FontAwesomeIcon fill="#e8e2e2" glyphName="LIST" layoutX="215.0" layoutY="37.0" size="2em" text="">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </FontAwesomeIcon>
+                  <Label alignment="CENTER" layoutX="24.0" layoutY="188.0" prefHeight="29.0" prefWidth="207.0" stylesheets="@../css/home.css" text="Shah Alvi Hossain" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="494.0" layoutY="55.0" prefHeight="91.0" prefWidth="515.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="5.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../profileImage.png" />
+                     </image>
+                  </ImageView>
+                  <JFXTextArea focusColor="WHITE" layoutX="33.0" layoutY="9.0" prefHeight="35.0" prefWidth="481.0" promptText="What's on your mind?" unFocusColor="WHITE" />
+                  <JFXButton layoutX="454.0" layoutY="54.0" minWidth="46.0" prefHeight="29.0" prefWidth="46.0" style="-fx-background-color: #20B2AA;" text="Post" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="45.0" prefWidth="1024.0" style="-fx-background-color: #3C3E3E;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane disable="true" opacity="0.79" prefHeight="712.0" prefWidth="424.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

@@ -1,0 +1,6 @@
+.jfx-text-field {
+    -fx-prompt-text-fill: black;
+    -jfx-focus-color: black;
+    -jfx-unfocus-color: black;
+    -jfx-underline-color: white;
+}

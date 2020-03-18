@@ -1,0 +1,13 @@
+.jfx-text-field, .jfx-password-field {
+    -fx-prompt-text-fill: white;
+    -jfx-focus-color:  #708090;
+    -jfx-unfocus-color:  #708090;
+    -jfx-underline-color:#708090;
+}
+
+.ImageView {
+	-fx-border-radius: 20px ;
+}
+.jfx-button {
+	-jfx-alignment-baseline: left;
+}

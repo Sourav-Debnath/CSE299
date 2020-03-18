@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="721.0" stylesheets="@../css/admin_home.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
+   <top>
+      <AnchorPane minHeight="10.0" minWidth="10.0" prefHeight="58.0" prefWidth="674.0" style="-fx-background-color: #20B2AA;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="26.0" layoutY="11.0" minHeight="1.0" minWidth="1.0" prefHeight="35.0" prefWidth="142.0" text="TenantPortal" AnchorPane.leftAnchor="26.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane style="-fx-background-color: #D8BFD8;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT" minHeight="10.0" minWidth="10.0" prefHeight="45.0" prefWidth="721.0" style="-fx-background-color: #2B2B2B;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXTextField minHeight="10.0" minWidth="300.0" prefHeight="25.0" prefWidth="500.0" promptText="Search ...." style="-fx-background-color: white;" />
+                  <HBox prefHeight="45.0" prefWidth="6.0" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" size="2em" wrappingWidth="38.047597885131836" />
+               </children>
+            </HBox>
+            <AnchorPane layoutY="97.0" minHeight="10.0" minWidth="10.0" prefHeight="347.0" prefWidth="721.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <Pane layoutX="80.0" layoutY="16.0" minHeight="10.0" minWidth="10.0" prefHeight="327.0" prefWidth="561.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="16.0">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/profile_image.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="59.0" layoutY="11.0" minHeight="1.0" minWidth="1.0" prefHeight="20.0" prefWidth="199.0" text="Shah Alvi Hossain">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="59.0" layoutY="30.0" minHeight="1.0" minWidth="1.0" prefHeight="17.0" prefWidth="125.0" text="Time &amp; Date">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/Calendar_Clock.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <JFXButton fx:id="Reject" layoutX="23.0" layoutY="285.0" minHeight="5.0" minWidth="5.0" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #D6DBDF;" text="Reject" />
+                        <JFXButton fx:id="Verify" layoutX="116.0" layoutY="285.0" minHeight="5.0" minWidth="5.0" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #20B2AA;" text="Verify" />
+                     </children>
+                  </Pane>
+                  <ScrollPane minHeight="10.0" minWidth="10.0" prefHeight="200.0" prefWidth="521.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="80.0" />
+                  <Separator minHeight="10.0" minWidth="10.0" prefHeight="0.0" prefWidth="555.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="290.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
