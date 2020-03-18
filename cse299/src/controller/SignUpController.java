@@ -4,13 +4,16 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
+import database.DBQuerySingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import java.io.File;
+import java.math.BigInteger;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -31,7 +34,8 @@ public class SignUpController extends ControllerBase implements Initializable {
     private JFXTextField userEmail;
     @FXML
     private JFXPasswordField userPassword;
-
+    @FXML
+    private Label signupErrorMessage;
 
 
     @Override
@@ -64,7 +68,13 @@ public class SignUpController extends ControllerBase implements Initializable {
     @FXML
     private void onSingUp(ActionEvent event) {
         if(userName.validate() && userNid.validate() && userMobile.validate() && userAddress.validate() && userImage.validate() && userEmail.validate() && userPassword.validate()){
-            //todo
+            DBQuerySingleton db = DBQuerySingleton.getInstance();
+            String signupText = db.signUp(new BigInteger(userNid.getText()),userName.getText(),userMobile.getText(),userAddress.getText(),userImage.getText(),userEmail.getText(),userPassword.getText());
+            if(signupText.equals("Insertion Successful")){
+                //Todo
+            }else{
+                signupErrorMessage.setText(signupText);
+            }
         }
     }
 
