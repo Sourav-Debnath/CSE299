@@ -8,7 +8,7 @@ public class DBQuerySingleton {
 	private static DBQuerySingleton instance = new DBQuerySingleton();
 	
 	//constructor
-	private DBQuerySingleton() {
+	public DBQuerySingleton() {
 		DBConnection objDBConnection=new DBConnection();
 		con=objDBConnection.getConnection();
 	}
@@ -52,9 +52,23 @@ public class DBQuerySingleton {
 		}
 	}
 	
-	public String createPost() {
+	/*
+	 * this function can entry an post into the database
+	 * if the insertion succeed it returns "Insertion Successful"
+	 * else the function returns the problematic entry & key
+	 */
+	public String createPost(int ownerId,String postText,Date postDate,Time postTime,String postCoordinate) {
+		String message="Insertion Successful";
+		String query="INSERT INTO `ownerpost`( `OwnerId`, `PostText`, `PostDate`, `PostTime`, `PostCoordinate`) VALUES ("
+				+ ownerId+",\""+ postText +"\",\""+ postDate +"\",\""+postTime+"\",\""+postCoordinate+"\") ";
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.executeUpdate();
+		}catch (Exception e) {
+			message=e.getMessage();
+		}
 		
-		return null;
+		return message;
 	}
 	
 	/*
@@ -66,7 +80,6 @@ public class DBQuerySingleton {
 		String message="Insertion Successful";
 		String query="INSERT INTO `user`(`Nid`, `Name`, `ContactNo`, `Address`, `Image`, `Email`, `Pass`) VALUES ("
 				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\",\""+Email+"\",\""+Pass+"\")";
-		System.out.println(query);
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.executeUpdate();						    
@@ -79,7 +92,8 @@ public class DBQuerySingleton {
 	/*
 	 * this function can check if the user is giving right email and password to log in.
 	 * if everything is right then it returns "Logged In"
-	 * if the email or password is wrong then it returns "Wrong Email or Password"
+	 * if the email is wrong then it returns "Wrong Email"
+	 * if the password is wrong then it returns "Wrong Password"
 	 */
 	public String login(String Email,String Password) {
 		String flag=null;
@@ -98,14 +112,9 @@ public class DBQuerySingleton {
 			}
 			
 		}else {
-			flag="Wrong Email or Password.";
+			flag="Wrong Email Or Password";
 		}
 		return flag;
 	}
 
-	public static void main(String[] args) {
-		BigInteger nid=new BigInteger("123456789101113");
-		DBQuerySingleton db=new DBQuerySingleton();
-		System.out.println(db.signUp(nid, "ruhul", "1234", "new address", "ruhul_image", "mr.email", "ruhul.pass"));
-	}
 }
