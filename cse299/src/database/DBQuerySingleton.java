@@ -106,9 +106,4 @@ public class DBQuerySingleton {
 		return flag;
 	}
 
-	public static void main(String[] args) {
-		BigInteger nid=new BigInteger("123456789101113");
-		DBQuerySingleton db=new DBQuerySingleton();
-		System.out.println(db.signUp(nid, "ruhul", "1234", "new address", "ruhul_image", "mr.email", "ruhul.pass"));
-	}
 }

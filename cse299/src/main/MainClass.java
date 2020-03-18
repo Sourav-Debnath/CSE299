@@ -24,6 +24,8 @@ public class MainClass extends Application {
         loadFxml("forgotpassword.fxml");
     }
 
+    public void loadNewsFeedPage(){ loadFxml("newsfeed.fxml"); }
+
     //This function will load the fxml as well as initialize the controller class
     private void loadFxml(String fxmlName){
         try {
