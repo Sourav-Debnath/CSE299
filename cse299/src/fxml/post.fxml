@@ -32,7 +32,7 @@
             <Image url="@../image/Calander.png" />
          </image>
       </ImageView>
-      <WebView fx:id="postWebView" layoutX="37.0" layoutY="128.0" prefHeight="290.0" prefWidth="558.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="125.0" />
+      <WebView fx:id="postWebView" layoutX="37.0" layoutY="128.0" prefHeight="158.0" prefWidth="240.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="125.0" />
    </children>
    <effect>
       <DropShadow />

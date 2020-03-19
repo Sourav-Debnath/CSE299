@@ -11,10 +11,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PostController extends ControllerBase implements Initializable {
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
     @FXML
     private ImageView postUserImage;
 
@@ -29,4 +26,10 @@ public class PostController extends ControllerBase implements Initializable {
 
     @FXML
     private WebView postWebView;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        postWebView.getEngine().load("http://localhost/map/getaddress.php?key=cse299&lng=90.4125&lat=23.8103");
+    }
+
 }
