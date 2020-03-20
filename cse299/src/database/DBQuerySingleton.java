@@ -70,6 +70,34 @@ public class DBQuerySingleton {
 		
 		return message;
 	}
+
+	/*
+	 * This function can retrieve the posts owners created
+	 * returns an array of Post
+	 */
+	public Post[] postDetails() {
+		Post[] post=null;
+		String query="SELECT `PostText`, `PostDate`, `PostTime`, `PostCoordinate` FROM `ownerpost`";
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ResultSet rs=ps.executeQuery();
+			
+			//-------------------to know the size of the result set
+			rs.last();
+			int size=rs.getRow();
+			post=new Post[size];
+			
+			//-------------------keeps the result set data into the array
+			rs.beforeFirst();
+			for(int i=0;i<size;i++) {
+				rs.next();
+				post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+			}
+		}catch (Exception e) {
+			System.out.println( e.getMessage());
+		}
+		return post;
+	}
 	
 	/*
 	 * this function can entry an user into the database
