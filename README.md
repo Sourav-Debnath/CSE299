@@ -19,6 +19,7 @@ This is a CSE299 junior project design repo. We are creating a software for dist
 ## Used Libraries and APIs
 
 * [JFoenix](http://www.jfoenix.com/)
+* [FontAwesome 8.2](https://fontawesome.com/)
 * [MySql Connector](https://dev.mysql.com/downloads/connector/j/)
 * [Google 2.0 OAuth Api](https://console.developers.google.com/)
 * [Open Layers 6 Library](https://openlayers.org/)

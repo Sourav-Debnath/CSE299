@@ -8,7 +8,7 @@ public class DBQuerySingleton {
 	private static DBQuerySingleton instance = new DBQuerySingleton();
 	
 	//constructor
-	private DBQuerySingleton() {
+	public DBQuerySingleton() {
 		DBConnection objDBConnection=new DBConnection();
 		con=objDBConnection.getConnection();
 	}
@@ -52,9 +52,51 @@ public class DBQuerySingleton {
 		}
 	}
 	
-	public String createPost() {
+	/*
+	 * this function can entry an post into the database
+	 * if the insertion succeed it returns "Insertion Successful"
+	 * else the function returns the problematic entry & key
+	 */
+	public String createPost(int ownerId,String postText,Date postDate,Time postTime,String postCoordinate) {
+		String message="Insertion Successful";
+		String query="INSERT INTO `ownerpost`( `OwnerId`, `PostText`, `PostDate`, `PostTime`, `PostCoordinate`) VALUES ("
+				+ ownerId+",\""+ postText +"\",\""+ postDate +"\",\""+postTime+"\",\""+postCoordinate+"\") ";
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.executeUpdate();
+		}catch (Exception e) {
+			message=e.getMessage();
+		}
 		
-		return null;
+		return message;
+	}
+
+	/*
+	 * This function can retrieve the posts owners created
+	 * returns an array of Post
+	 */
+	public Post[] postDetails() {
+		Post[] post=null;
+		String query="SELECT `PostText`, `PostDate`, `PostTime`, `PostCoordinate` FROM `ownerpost`";
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ResultSet rs=ps.executeQuery();
+			
+			//-------------------to know the size of the result set
+			rs.last();
+			int size=rs.getRow();
+			post=new Post[size];
+			
+			//-------------------keeps the result set data into the array
+			rs.beforeFirst();
+			for(int i=0;i<size;i++) {
+				rs.next();
+				post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+			}
+		}catch (Exception e) {
+			System.out.println( e.getMessage());
+		}
+		return post;
 	}
 	
 	/*
@@ -66,7 +108,6 @@ public class DBQuerySingleton {
 		String message="Insertion Successful";
 		String query="INSERT INTO `user`(`Nid`, `Name`, `ContactNo`, `Address`, `Image`, `Email`, `Pass`) VALUES ("
 				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\",\""+Email+"\",\""+Pass+"\")";
-		System.out.println(query);
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.executeUpdate();						    
@@ -93,15 +134,13 @@ public class DBQuerySingleton {
 				System.out.println(rs.getString("pass"));
 				if(rs.getString("pass").equals(Password)) {
 					flag="Logged In";
-				}else {
-					flag="Wrong Password";
 				}
 			}catch (Exception e) {
 				System.out.println(e);
 			}
 			
 		}else {
-			flag="Wrong Email";
+			flag="Wrong Email Or Password";
 		}
 		return flag;
 	}
