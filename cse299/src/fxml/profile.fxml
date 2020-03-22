@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="721.0" stylesheets="@../css/admin_home.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
@@ -22,36 +23,56 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane style="-fx-background-color: #D8BFD8;" BorderPane.alignment="CENTER">
+      <AnchorPane minHeight="10.0" minWidth="10.0" style="-fx-background-color: #D8BFD8;" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane minHeight="10.0" minWidth="10.0" prefHeight="406.0" prefWidth="721.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Separator layoutY="215.0" minHeight="10.0" minWidth="10.0" prefHeight="0.0" prefWidth="555.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="210.0" />
-                  <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="505.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="26.0">
-                     <image>
-                        <Image url="@../image/profile_image.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" layoutX="499.0" layoutY="107.0" minHeight="1.0" minWidth="1.0" prefHeight="20.0" prefWidth="221.0" text="Shah Alvi Hossain" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="106.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="500.0" layoutY="136.0" prefHeight="17.0" prefWidth="221.0" text=" shah.alvi@northsouth.edu" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="130.0">
-                     <graphic>
-                        <FontAwesomeIcon glyphName="EMAIL_OUTLINE" size="1.3em" text="" />
-                     </graphic>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="296.0" layoutY="167.0" prefHeight="17.0" prefWidth="221.0" text="01913459880" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="150.0">
-                     <graphic>
-                        <FontAwesomeIcon fill="#4d4a4a" glyphName="PHONE" size="1.5em" />
-                     </graphic>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="296.0" layoutY="194.0" prefHeight="17.0" prefWidth="221.0" text="203-A ,Dhaka " AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="170.0">
-                     <graphic>
-                        <FontAwesomeIcon fill="#4d4a4a" glyphName="MAP_MARKER" size="1.5em" />
-                     </graphic>
-                  </Label>
+                  <HBox alignment="TOP_CENTER" minHeight="10.0" minWidth="10.0" prefHeight="70.0" prefWidth="301.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/profile_image.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="249.0" layoutY="100.0" minHeight="10.0" minWidth="10.0" prefHeight="21.0" prefWidth="301.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="90.0">
+                     <children>
+                        <Label alignment="CENTER" minHeight="1.0" minWidth="1.0" prefHeight="20.0" prefWidth="221.0" text="Shah Alvi Hossain">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="238.0" layoutY="107.0" minHeight="10.0" minWidth="10.0" prefHeight="21.0" prefWidth="301.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="110.0">
+                     <children>
+                        <Label alignment="CENTER" minHeight="10.0" minWidth="10.0" prefHeight="17.0" prefWidth="221.0" text=" shah.alvi@northsouth.edu">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="EMAIL_OUTLINE" size="1.3em" text="" />
+                           </graphic>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="229.0" layoutY="131.0" minHeight="10.0" minWidth="10.0" prefHeight="19.0" prefWidth="301.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="125.0">
+                     <children>
+                        <Label alignment="CENTER" minHeight="10.0" minWidth="10.0" prefHeight="17.0" prefWidth="221.0" text="01913459880">
+                           <graphic>
+                              <FontAwesomeIcon fill="#4d4a4a" glyphName="PHONE" size="1.5em" />
+                           </graphic>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="297.0" layoutY="142.0" minHeight="10.0" minWidth="10.0" prefHeight="19.0" prefWidth="301.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="140.0">
+                     <children>
+                        <Label alignment="CENTER" minHeight="10.0" minWidth="10.0" prefHeight="17.0" prefWidth="221.0" text="203-A ,Dhaka ">
+                           <graphic>
+                              <FontAwesomeIcon fill="#4d4a4a" glyphName="MAP_MARKER" size="1.5em" />
+                           </graphic>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
             </AnchorPane>
          </children>
