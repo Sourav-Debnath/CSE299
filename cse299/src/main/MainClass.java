@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 public class MainClass extends Application {
     private Stage stage;
+
     @Override
     public void start(Stage primaryStage){
         this.stage = primaryStage;
@@ -23,6 +24,8 @@ public class MainClass extends Application {
     public void loadForgotPasswordPage(){
         loadFxml("forgotpassword.fxml");
     }
+
+    public void loadNewsFeedPage(){ loadFxml("newsfeed.fxml"); }
 
     //This function will load the fxml as well as initialize the controller class
     private void loadFxml(String fxmlName){
