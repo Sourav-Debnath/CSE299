@@ -13,7 +13,7 @@ public class MainClass extends Application {
     @Override
     public void start(Stage primaryStage){
         this.stage = primaryStage;
-        loadLoginPage();
+        loadNewsFeedPage();
     }
     public  void loadSignUpPage(){ loadFxml("signup.fxml"); }
 
