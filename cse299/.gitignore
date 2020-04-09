@@ -1,0 +1,6 @@
+#My config
+.idea
+out/
+.classpath
+.project
+cse299.iml
