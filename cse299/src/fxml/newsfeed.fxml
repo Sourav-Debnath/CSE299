@@ -21,7 +21,6 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <JFXButton layoutX="627.0" layoutY="16.0" onAction="#onLogout" ripplerFill="LIGHTSEAGREEN" style="-fx-background-color: white;" text="Logout" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="16.0" />
             <HBox alignment="CENTER" layoutX="193.0" layoutY="5.0" prefHeight="58.0" prefWidth="390.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXTextField prefHeight="26.0" prefWidth="283.0" />
@@ -50,6 +49,15 @@
                   <Label alignment="CENTER" layoutX="30.0" layoutY="173.0" prefHeight="30.0" prefWidth="200.0" text="Name" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="175.0" />
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="15.0" layoutY="245.0" onAction="#onPressProfile" prefHeight="32.0" prefWidth="230.0" style="-fx-background-color: #20B2AA;" text="Profile" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="245.0" />
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="15.0" layoutY="290.0" onAction="#onAccountSettings" prefHeight="32.0" prefWidth="230.0" style="-fx-background-color: #20B2AA;" text="Account Settings" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="290.0" />
+                  <JFXButton buttonType="RAISED" layoutX="70.0" layoutY="459.0" onAction="#onLogout" prefHeight="26.0" prefWidth="116.0" ripplerFill="#9c0000" style="-fx-background-color: #20b2aa;" text="Logout" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="114.0">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/Logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="234.0" layoutY="363.0" onAction="#onPressMenu" prefHeight="500.0" prefWidth="48.0" ripplerFill="#d72d2d" style="-fx-background-color: #9a72cf;" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <graphic>
                         <Label rotate="90.0" text="Menu" />
@@ -59,7 +67,7 @@
             </AnchorPane>
             <AnchorPane fx:id="body" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane prefHeight="135.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.bottomAnchor="364.8" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane prefHeight="135.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="5.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
                         <JFXTextArea focusColor="WHITE" layoutX="33.0" layoutY="9.0" prefHeight="85.0" prefWidth="200.0" promptText="What's on your mind?" unFocusColor="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0" />
