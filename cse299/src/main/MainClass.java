@@ -13,7 +13,7 @@ public class MainClass extends Application {
     @Override
     public void start(Stage primaryStage){
         this.stage = primaryStage;
-        loadLoginPage();
+        loadNewsFeedPage();
     }
     public  void loadSignUpPage(){ loadFxml("signup.fxml"); }
 
@@ -26,6 +26,8 @@ public class MainClass extends Application {
     }
 
     public void loadNewsFeedPage(){ loadFxml("newsfeed.fxml"); }
+
+    public void loadProfilePage(){ loadFxml("profile.fxml"); }
 
     //This function will load the fxml as well as initialize the controller class
     private void loadFxml(String fxmlName){

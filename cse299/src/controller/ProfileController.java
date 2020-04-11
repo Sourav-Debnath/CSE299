@@ -4,7 +4,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -12,16 +12,13 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewsFeedController extends ControllerBase implements Initializable {
-
-    @FXML
-    private AnchorPane postParentPane;
+public class ProfileController extends ControllerBase implements Initializable {
 
     @FXML
     private AnchorPane sideBar;
 
     @FXML
-    private AnchorPane body;
+    private ScrollPane body;
 
     @FXML
     private ImageView userImage;
@@ -29,31 +26,10 @@ public class NewsFeedController extends ControllerBase implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //userImage.setImage(new Image("http://localhost/profilepicture/ProfilePicture.png"));
-        postParentPane.setPrefHeight(1000);
         //Sidebar minus the button width is 258
         sideBar.setTranslateX(-258);
         body.setTranslateX(-258);
         AnchorPane.setRightAnchor(body, -258.0);
-    }
-
-    @FXML
-    void onAccountSettings(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onPost(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onPressProfile(ActionEvent event) {
-        mainClass.loadProfilePage();
-    }
-
-    @FXML
-    void onLoadMore(ActionEvent event) {
-
     }
 
     @FXML
@@ -62,7 +38,7 @@ public class NewsFeedController extends ControllerBase implements Initializable 
     }
 
     @FXML
-    void onPressMenu(ActionEvent actionEvent) {
+    void onPressMenu(ActionEvent event) {
         TranslateTransition openNav = new TranslateTransition(new Duration(350), sideBar);
         TranslateTransition closeNav = new TranslateTransition(new Duration(350), sideBar);
         TranslateTransition expendBody = new TranslateTransition(new Duration(350), body);
@@ -87,4 +63,12 @@ public class NewsFeedController extends ControllerBase implements Initializable 
         }
     }
 
+    @FXML
+    void onPressProfile(ActionEvent event) {
+
+    }
+
+    public void onAccountSettings(ActionEvent actionEvent) {
+
+    }
 }
