@@ -112,8 +112,6 @@ public class DBQuerySingleton {
 	public Post postDetails(int PostId) {
 		Post post=null;
 		String query="SELECT `PostText`, `PostDate`, `PostTime`, `PostCoordinate` FROM `ownerpost` Where `PostId`="+PostId;
-		
-		System.out.println(query);
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -129,9 +127,19 @@ public class DBQuerySingleton {
 	/*
 	 * 
 	 */
-	public String profileDetails(BigInteger id) {
+	public Profile profileDetails(String id) {
+		Profile profile=null;
+		String query="SELECT `Nid`, `Name`, `ContactNo`, `Address`, `Image`, `Email` FROM `user` Where `Nid`="+id;
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			profile=new Profile(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+		}catch (Exception e) {
+			System.out.println( e.getMessage() );
+		}
 		
-		return null;
+		return profile;
 	}
 	
 	/*
