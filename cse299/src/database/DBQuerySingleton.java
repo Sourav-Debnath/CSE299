@@ -8,7 +8,7 @@ public class DBQuerySingleton {
 	private static DBQuerySingleton instance = new DBQuerySingleton();
 	
 	//constructor
-	public DBQuerySingleton() {
+	private DBQuerySingleton() {
 		DBConnection objDBConnection=new DBConnection();
 		con=objDBConnection.getConnection();
 	}
@@ -72,12 +72,15 @@ public class DBQuerySingleton {
 	}
 
 	/*
-	 * This function can retrieve the posts owners created
-	 * returns an array of Post
+	 * this function can shows posts
+	 * created by owners in the portal
+	 * in a descending order of date and time
+	 * it takes the pageIndex and
+	 * shows the Posts according to it
 	 */
-	public Post[] postDetails() {
+	public Post[] showPortalPosts(int pageIndex) {
 		Post[] post=null;
-		String query="SELECT `PostText`, `PostDate`, `PostTime`, `PostCoordinate` FROM `ownerpost`";
+		String query="SELECT `PostText`, `PostDate`, `PostTime`, `PostCoordinate` FROM `ownerpost` ORDER BY `PostDate` DESC, `PostTime` DESC";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -89,14 +92,46 @@ public class DBQuerySingleton {
 			
 			//-------------------keeps the result set data into the array
 			rs.beforeFirst();
-			for(int i=0;i<size;i++) {
-				rs.next();
-				post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+			for(int i=10*(pageIndex-1);i<10*pageIndex;i++) {
+				if(i<size) {
+					rs.next();
+					post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+				}				
 			}
 		}catch (Exception e) {
 			System.out.println( e.getMessage());
 		}
 		return post;
+		
+	}
+	
+	/*
+	 * This function can retrieve the post
+	 * that matches PostId
+	 */
+	public Post postDetails(int PostId) {
+		Post post=null;
+		String query="SELECT `PostText`, `PostDate`, `PostTime`, `PostCoordinate` FROM `ownerpost` Where `PostId`="+PostId;
+		
+		System.out.println(query);
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			post=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+		}catch (Exception e) {
+			System.out.println( e.getMessage() );
+		}
+		
+		return post;
+	}
+	
+	/*
+	 * 
+	 */
+	public String profileDetails(BigInteger id) {
+		
+		return null;
 	}
 	
 	/*
