@@ -10,7 +10,7 @@ public class DBConnection {
 		Connection connection=null;
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection=DriverManager.getConnection("jdbc:mysql://118.179.64.218/tenantportal?serverTimezone=UTC","cse299","cse299");
+			connection=DriverManager.getConnection("jdbc:mysql://118.179.70.102/tenantportal?serverTimezone=UTC","tenantportal","tenantportal");
 		}catch (Exception e) {
 			System.out.println(e);
 		}
