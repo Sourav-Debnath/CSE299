@@ -80,7 +80,7 @@ public class DBQuerySingleton {
 	 */
 	public Post[] showPortalPosts(int pageIndex) {
 		Post[] post=null;
-		String query="SELECT `PostText`, `PostDate`, `PostTime`, `xCoordinate`, `yCoordinate` FROM `ownerpost` ORDER BY `PostDate` DESC, `PostTime` DESC";
+		String query="SELECT `postText`, `postDate`, `postTime`, `xCoordinate`, `yCoordinate` FROM `ownerpost` ORDER BY `postDate` DESC, `postTime` DESC";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -109,9 +109,9 @@ public class DBQuerySingleton {
 	 * This function can retrieve the post
 	 * that matches PostId
 	 */
-	public Post postDetails(int PostId) {
+	public Post postDetails(int postId) {
 		Post post=null;
-		String query="SELECT `PostText`, `PostDate`, `PostTime`, `xCoordinate`, `yCoordinate` FROM `ownerpost` Where `PostId`="+PostId;
+		String query="SELECT `postText`, `postDate`, `postTime`, `xCoordinate`, `yCoordinate` FROM `ownerpost` Where `postId`="+postId;
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -130,7 +130,7 @@ public class DBQuerySingleton {
 	 */
 	public Profile profileDetails(String id) {
 		Profile profile=null;
-		String query="SELECT `Nid`, `Name`, `ContactNo`, `Address`, `Image`, `Email` FROM `user` Where `Nid`="+id;
+		String query="SELECT `nid`, `name`, `contactNo`, `address`, `image`, `email` FROM `user` Where `nid`="+id;
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -150,7 +150,7 @@ public class DBQuerySingleton {
 	 */
 	public String signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Image,String Email,String Pass) {
 		String message="Insertion Successful";
-		String query="INSERT INTO `user`(`Nid`, `Name`, `ContactNo`, `Address`, `Image`, `Email`, `Pass`) VALUES ("
+		String query="INSERT INTO `user`(`nid`, `name`, `contactNo`, `address`, `image`, `email`, `pass`) VALUES ("
 				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\",\""+Email+"\",\""+Pass+"\")";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
