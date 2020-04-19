@@ -57,10 +57,10 @@ public class DBQuerySingleton {
 	 * if the insertion succeed it returns "Insertion Successful"
 	 * else the function returns the problematic entry & key
 	 */
-	public String createPost(int ownerId,String postText,Date postDate,Time postTime,String postCoordinate) {
+	public String createPost(int ownerId,String postText,Date postDate,Time postTime,float xCoordinate,float yCoordiate ) {
 		String message="Insertion Successful";
-		String query="INSERT INTO `ownerpost`( `OwnerId`, `PostText`, `PostDate`, `PostTime`, `PostCoordinate`) VALUES ("
-				+ ownerId+",\""+ postText +"\",\""+ postDate +"\",\""+postTime+"\",\""+postCoordinate+"\") ";
+		String query="INSERT INTO `ownerpost`( `ownerId`, `postText`, `postDate`, `postTime`, `xCoordinate`, `yCoordinate`) VALUES ("
+				+ ownerId+",\""+ postText +"\",\""+ postDate +"\",\""+postTime+"\","+xCoordinate+","+yCoordiate+") ";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.executeUpdate();
@@ -80,7 +80,7 @@ public class DBQuerySingleton {
 	 */
 	public Post[] showPortalPosts(int pageIndex) {
 		Post[] post=null;
-		String query="SELECT `PostText`, `PostDate`, `PostTime`, `PostCoordinate` FROM `ownerpost` ORDER BY `PostDate` DESC, `PostTime` DESC";
+		String query="SELECT `PostText`, `PostDate`, `PostTime`, `xCoordinate`, `yCoordinate` FROM `ownerpost` ORDER BY `PostDate` DESC, `PostTime` DESC";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -95,7 +95,7 @@ public class DBQuerySingleton {
 			for(int i=10*(pageIndex-1);i<10*pageIndex;i++) {
 				if(i<size) {
 					rs.next();
-					post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+					post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getFloat(4),rs.getFloat(5));
 				}				
 			}
 		}catch (Exception e) {
@@ -111,12 +111,12 @@ public class DBQuerySingleton {
 	 */
 	public Post postDetails(int PostId) {
 		Post post=null;
-		String query="SELECT `PostText`, `PostDate`, `PostTime`, `PostCoordinate` FROM `ownerpost` Where `PostId`="+PostId;
+		String query="SELECT `PostText`, `PostDate`, `PostTime`, `xCoordinate`, `yCoordinate` FROM `ownerpost` Where `PostId`="+PostId;
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
-			post=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));
+			post=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getFloat(4),rs.getFloat(5));
 		}catch (Exception e) {
 			System.out.println( e.getMessage() );
 		}
@@ -125,7 +125,8 @@ public class DBQuerySingleton {
 	}
 	
 	/*
-	 * 
+	 * This function can retrieve the profile
+	 * that matches id
 	 */
 	public Profile profileDetails(String id) {
 		Profile profile=null;
@@ -187,5 +188,5 @@ public class DBQuerySingleton {
 		}
 		return flag;
 	}
-
+	
 }
