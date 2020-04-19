@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXMasonryPane?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -12,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="825.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="825.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewPostController">
    <children>
       <ImageView fx:id="postUserImage" fitHeight="40.0" fitWidth="40.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="18.0">
          <image>
@@ -24,52 +22,51 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="postDate" layoutX="105.0" layoutY="47.0" prefHeight="10.0" prefWidth="105.0" text="Date &amp; Time" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="41.0">
-         <font>
-            <Font size="8.0" />
-         </font>
-      </Label>
-      <WebView fx:id="postWebView" layoutX="37.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="770.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="220.0" />
-      <JFXButton buttonType="RAISED" layoutX="392.0" layoutY="585.0" onAction="#onPost" ripplerFill="RED" style="-fx-background-color: #20B2AA;" text="Post" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="22.0" />
-      <JFXMasonryPane cellHeight="60.0" layoutX="33.0" layoutY="80.0" limitRow="2" prefHeight="69.0" prefWidth="744.0" viewOrder="1.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="80.0">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="160.0" spacing="5.0">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="42.0" text="Flat No:" />
-                  <JFXTextField fx:id="postflatNo" focusColor="LIGHTSEAGREEN" prefHeight="25.0" prefWidth="135.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="160.0" spacing="5.0">
-               <children>
-                  <Label text="Area Name:" />
-                  <JFXTextField fx:id="postAreaName" focusColor="LIGHTSEAGREEN" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="160.0" spacing="5.0">
-               <children>
-                  <Label text="House No:" />
-                  <JFXTextField fx:id="postHouseNo" focusColor="LIGHTSEAGREEN" prefHeight="25.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="160.0" spacing="5.0">
-               <children>
-                  <Label text="Sector/Block:" />
-                  <JFXTextField fx:id="postSectorNo" focusColor="LIGHTSEAGREEN" prefHeight="25.0" prefWidth="125.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="160.0" spacing="5.0">
-               <children>
-                  <Label text="Road No:" />
-                  <JFXTextField fx:id="postRoadNo" focusColor="LIGHTSEAGREEN" />
-               </children>
-            </HBox>
-         </children>
-      </JFXMasonryPane>
       <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="89.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="40.0">
          <image>
             <Image url="@../image/Calander.png" />
          </image>
       </ImageView>
+      <Label fx:id="postDate" layoutX="105.0" layoutY="47.0" prefHeight="10.0" prefWidth="105.0" text="Date &amp; Time" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="41.0">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </Label>
+      <JFXMasonryPane cellHeight="60.0" layoutX="33.0" layoutY="80.0" limitRow="2" prefHeight="69.0" prefWidth="744.0" viewOrder="1.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="160.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="42.0" text="Flat No:" />
+                  <Label fx:id="flatNoLabel" prefHeight="18.0" prefWidth="170.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="160.0" spacing="5.0">
+               <children>
+                  <Label text="House No:" />
+                  <Label fx:id="hosueNoLabel" prefWidth="160.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="160.0" spacing="5.0">
+               <children>
+                  <Label text="Road No:" />
+                  <Label fx:id="roadNoLabel" prefWidth="160.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="160.0" spacing="5.0">
+               <children>
+                  <Label text="Area Name:" />
+                  <Label fx:id="areaNameLabel" prefHeight="18.0" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="160.0" spacing="5.0">
+               <children>
+                  <Label text="Sector/Block:" />
+                  <Label fx:id="blockLabel" prefWidth="140.0" />
+               </children>
+            </HBox>
+         </children>
+      </JFXMasonryPane>
+      <WebView fx:id="postWebView" layoutX="37.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="770.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="220.0" />
    </children>
    <effect>
       <DropShadow />

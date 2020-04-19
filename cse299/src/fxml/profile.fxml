@@ -60,7 +60,7 @@
                <content>
                   <AnchorPane prefHeight="666.0" prefWidth="590.0">
                      <children>
-                        <VBox alignment="TOP_CENTER" layoutX="253.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="TOP_CENTER" layoutX="253.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -124,15 +124,6 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <AnchorPane prefHeight="400.0" prefWidth="590.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="344.0">
-                           <children>
-                              <Label alignment="CENTER" layoutX="281.0" layoutY="14.0" text="Pervious posts" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </content>

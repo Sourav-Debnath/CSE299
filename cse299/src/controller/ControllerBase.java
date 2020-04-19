@@ -5,6 +5,10 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import main.MainClass;
 
 public class ControllerBase {
@@ -53,5 +57,42 @@ public class ControllerBase {
         textField.focusedProperty().addListener((o,oldVal,newVal)->{
             if(!newVal) textField.validate();
         });
+    }
+    protected void addChildToAnchorPane(String fxmlName, AnchorPane pane, Integer... anchorValues){
+        try {
+            FXMLLoader loader=new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/" +fxmlName));
+            Parent root = loader.load();
+            pane.getChildren().add(root);
+            if(anchorValues.length==1){
+                AnchorPane.setLeftAnchor(root,(double)anchorValues[0]);
+            }else if(anchorValues.length==2){
+                AnchorPane.setLeftAnchor(root,(double)anchorValues[0]);
+                AnchorPane.setTopAnchor(root,(double)anchorValues[1]);
+            }else if(anchorValues.length==3){
+                AnchorPane.setLeftAnchor(root,(double)anchorValues[0]);
+                AnchorPane.setTopAnchor(root,(double)anchorValues[1]);
+                AnchorPane.setRightAnchor(root,(double)anchorValues[2]);
+            }else if(anchorValues.length==4){
+                AnchorPane.setLeftAnchor(root,(double)anchorValues[0]);
+                AnchorPane.setTopAnchor(root,(double)anchorValues[1]);
+                AnchorPane.setRightAnchor(root,(double)anchorValues[2]);
+                AnchorPane.setBottomAnchor(root,(double)anchorValues[3]);
+            }
+        }catch (Exception e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
+    }
+    protected void addChildToVbox(String fxmlName, VBox vBox){
+        try {
+            FXMLLoader loader=new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/" +fxmlName));
+            Parent root = loader.load();
+            vBox.getChildren().add(root);
+        }catch (Exception e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 }

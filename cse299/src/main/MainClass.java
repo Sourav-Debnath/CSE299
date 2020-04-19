@@ -33,7 +33,7 @@ public class MainClass extends Application {
     private void loadFxml(String fxmlName){
         try {
             FXMLLoader loader=new FXMLLoader();
-            loader.setLocation(getClass().getResource("../fxml/"+fxmlName));
+            loader.setLocation(getClass().getResource("/fxml/" +fxmlName));
             Parent root = loader.load();
             ControllerBase controller = loader.getController();
             controller.setMainClass(this);

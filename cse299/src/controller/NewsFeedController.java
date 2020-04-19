@@ -4,9 +4,10 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -21,10 +22,13 @@ public class NewsFeedController extends ControllerBase implements Initializable 
     private AnchorPane sideBar;
 
     @FXML
-    private AnchorPane body;
+    private ScrollPane body;
 
     @FXML
     private ImageView userImage;
+
+    @FXML
+    private VBox postParentVbox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -34,6 +38,7 @@ public class NewsFeedController extends ControllerBase implements Initializable 
         sideBar.setTranslateX(-258);
         body.setTranslateX(-258);
         AnchorPane.setRightAnchor(body, -258.0);
+        addChildToVbox("post.fxml",postParentVbox);
     }
 
     @FXML
