@@ -4,14 +4,17 @@ public class Post {
 	private String postText;
 	private String postDate;
 	private String postTime;
-	private String postCoordinate;
+	private float xCoordinate;
+	private float yCoordinate;	
 	
 	//constructor
-	public Post(String postText,String postDate,String postTime,String postCoordinate) {
-		this.postText=postText;
-		this.postDate=postDate;
-		this.postTime=postTime;
-		this.postCoordinate=postCoordinate;
+	public Post(String postText, String postDate, String postTime, float xCoordinate, float yCoordinate) {
+		super();
+		this.postText = postText;
+		this.postDate = postDate;
+		this.postTime = postTime;
+		this.xCoordinate = xCoordinate;
+		this.yCoordinate = yCoordinate;
 	}
 
 	public String getPostText() {
@@ -26,8 +29,12 @@ public class Post {
 		return postTime;
 	}
 
-	public String getPostCoordinate() {
-		return postCoordinate;
-	}	
-	
+	public float getxCoordinate() {
+		return xCoordinate;
+	}
+
+	public float getyCoordinate() {
+		return yCoordinate;
+	}
+		
 }
