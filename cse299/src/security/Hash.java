@@ -5,7 +5,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Hash {
-    public String getMd5(String input) {
+	
+    public static String getMd5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] messageDigest = md.digest(input.getBytes());
@@ -20,7 +21,5 @@ public class Hash {
             throw new RuntimeException(e);
         }
     }
-    public String getSHA1(){
-        return null;
-    }
+    
 }
