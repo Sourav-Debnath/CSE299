@@ -3,6 +3,8 @@ package database;
 import java.math.BigInteger;
 import java.sql.*;
 
+import security.Hash;
+
 public class DBQuerySingleton {
 	Connection con;
 	private static DBQuerySingleton instance = new DBQuerySingleton();
@@ -150,8 +152,9 @@ public class DBQuerySingleton {
 	 */
 	public String signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Image,String Email,String Pass) {
 		String message="Insertion Successful";
+		String encriptedPass = Hash.getMd5(Pass); 
 		String query="INSERT INTO `user`(`nid`, `name`, `contactNo`, `address`, `image`, `email`, `pass`) VALUES ("
-				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\",\""+Email+"\",\""+Pass+"\")";
+				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\",\""+Email+"\",\""+encriptedPass+"\")";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.executeUpdate();						    
@@ -176,7 +179,7 @@ public class DBQuerySingleton {
 				ResultSet rs=ps.executeQuery();
 				rs.next();
 				System.out.println(rs.getString("pass"));
-				if(rs.getString("pass").equals(Password)) {
+				if(rs.getString("pass").equals(Hash.getMd5(Password))) {
 					flag="Logged In";
 				}
 			}catch (Exception e) {
