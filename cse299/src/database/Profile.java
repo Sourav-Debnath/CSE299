@@ -5,16 +5,14 @@ public class Profile {
 	private String Name;
 	private String ContactNo;
 	private String Address;
-	private String Image;
 	private String Email;
 	
 	//---------Constructor
-	public Profile(String nid, String name, String contactNo, String address, String image, String email) {
+	public Profile(String nid, String name, String contactNo, String address, String email) {
 		Nid = nid;
 		Name = name;
 		ContactNo = contactNo;
 		Address = address;
-		Image = image;
 		Email = email;
 	}
 
@@ -48,14 +46,6 @@ public class Profile {
 	
 	public void setAddress(String address) {
 		Address = address;
-	}
-	
-	public String getImage() {
-		return Image;
-	}
-	
-	public void setImage(String image) {
-		Image = image;
 	}
 	
 	public String getEmail() {
