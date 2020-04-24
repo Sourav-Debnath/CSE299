@@ -1,6 +1,5 @@
 package database;
 
-import java.math.BigInteger;
 import java.sql.*;
 
 import security.Hash;
@@ -21,7 +20,7 @@ public class DBQuerySingleton {
 	}	
 	
 	public boolean isEmailExists(String email){
-		String query="Select id from user where email='"+email+"'";
+		String query="Select nid from user where email='"+email+"'";
 		boolean flag=false;
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
@@ -40,7 +39,7 @@ public class DBQuerySingleton {
 	
 	public void resetPassword(String email) {
 		if(isEmailExists(email)) {
-			String query="Select pass from user where email='"+email+"'";
+			String query="Select password from user where email='"+email+"'";
 			try {
 				PreparedStatement ps=con.prepareStatement(query);
 				ResultSet rs=ps.executeQuery();
@@ -59,10 +58,10 @@ public class DBQuerySingleton {
 	 * if the insertion succeed it returns "Insertion Successful"
 	 * else the function returns the problematic entry & key
 	 */
-	public String createPost(int ownerId,String postText,Date postDate,Time postTime,float xCoordinate,float yCoordiate ) {
+	public String createPost(int ownerId,int flatId,String postText,Date postDate,Time postTime,float lat,float lang ) {
 		String message="Insertion Successful";
-		String query="INSERT INTO `ownerpost`( `ownerId`, `postText`, `postDate`, `postTime`, `xCoordinate`, `yCoordinate`) VALUES ("
-				+ ownerId+",\""+ postText +"\",\""+ postDate +"\",\""+postTime+"\","+xCoordinate+","+yCoordiate+") ";
+		String query="INSERT INTO `ownerpost`( `ownerId`, `flatId`, `postText`, `postDate`, `postTime`, `lat`, `lang`) VALUES ("
+				+ ownerId+","+ flatId+",\""+ postText +"\",\""+ postDate +"\",\""+postTime+"\","+lat+","+lang+") ";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.executeUpdate();
@@ -82,7 +81,7 @@ public class DBQuerySingleton {
 	 */
 	public Post[] showPortalPosts(int pageIndex) {
 		Post[] post=null;
-		String query="SELECT `postText`, `postDate`, `postTime`, `xCoordinate`, `yCoordinate` FROM `ownerpost` ORDER BY `postDate` DESC, `postTime` DESC";
+		String query="SELECT `postText`, `postDate`, `postTime`, `lat`, `lang` FROM `ownerpost` ORDER BY `postDate` DESC, `postTime` DESC";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -113,7 +112,7 @@ public class DBQuerySingleton {
 	 */
 	public Post postDetails(int postId) {
 		Post post=null;
-		String query="SELECT `postText`, `postDate`, `postTime`, `xCoordinate`, `yCoordinate` FROM `ownerpost` Where `postId`="+postId;
+		String query="SELECT `postText`, `postDate`, `postTime`, `lat`, `lang` FROM `ownerpost` Where `postId`="+postId;
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -132,12 +131,12 @@ public class DBQuerySingleton {
 	 */
 	public Profile profileDetails(String id) {
 		Profile profile=null;
-		String query="SELECT `nid`, `name`, `contactNo`, `address`, `image`, `email` FROM `user` Where `nid`="+id;
+		String query="SELECT `nid`, `name`, `contactNo`, `address`, `email` FROM `user` Where `nid`="+id;
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
-			profile=new Profile(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+			profile=new Profile(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
 		}catch (Exception e) {
 			System.out.println( e.getMessage() );
 		}
@@ -150,11 +149,12 @@ public class DBQuerySingleton {
 	 * if there is no problem with duplication of same user the function returns "Insertion Successful"
 	 * else the function returns the problematic entry & key
 	 */
-	public String signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Image,String Email,String Pass) {
+	public String signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Email,String Pass) {
 		String message="Insertion Successful";
 		String encriptedPass = Hash.getMd5(Pass); 
-		String query="INSERT INTO `user`(`nid`, `name`, `contactNo`, `address`, `image`, `email`, `pass`) VALUES ("
-				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Image+"\",\""+Email+"\",\""+encriptedPass+"\")";
+		String query="INSERT INTO `user`(`nid`, `name`, `contactNo`, `address`, `email`, `password`) VALUES ("
+				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Email+"\",\""+encriptedPass+"\")";
+		System.out.println(query);
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.executeUpdate();						    
@@ -173,13 +173,13 @@ public class DBQuerySingleton {
 	public String login(String Email,String Password) {
 		String flag=null;
 		if(isEmailExists(Email)) {
-			String query="Select pass from user where email='"+Email+"'";
+			String query="Select password from user where email='"+Email+"'";
 			try {
 				PreparedStatement ps=con.prepareStatement(query);
 				ResultSet rs=ps.executeQuery();
 				rs.next();
-				System.out.println(rs.getString("pass"));
-				if(rs.getString("pass").equals(Hash.getMd5(Password))) {
+				System.out.println(rs.getString("password"));
+				if(rs.getString("password").equals(Hash.getMd5(Password))) {
 					flag="Logged In";
 				}
 			}catch (Exception e) {
