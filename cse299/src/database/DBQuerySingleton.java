@@ -1,5 +1,6 @@
 package database;
 
+import java.math.BigInteger;
 import java.sql.*;
 
 import security.Hash;
@@ -71,7 +72,42 @@ public class DBQuerySingleton {
 		
 		return message;
 	}
-
+	
+	/*
+	 * this function can show posts
+	 * that match with the searched area
+	 */
+	public Post[] searchPost(String areaName) {
+		Post post[]=null;
+		String query="SELECT `postText`,`postDate`,`postTime`,`lat`,`lang`,`houseNo`,`flatNo`,`floorNo`,`size`,"
+				+ "`noBedRoom`,`noBathRoom`,`price`,`flatPic`,`facing`,`roadNo`,`blockNo`,`areaName`,`district`" + 
+				"FROM `ownerpost`,`flat`,`road`" + 
+				"WHERE ownerpost.flatId = flat.flatId AND flat.roadId = road.roadId AND `areaName` = \""+areaName+
+				"\" ORDER BY `postDate` DESC, `postTime` DESC";
+		System.out.println(query);
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ResultSet rs=ps.executeQuery();
+			
+			//-------------------to know the size of the result set
+			rs.last();
+			int size = rs.getRow();
+			post = new Post[size];
+			
+			//-------------------keeps the result set data into the array
+			rs.beforeFirst();
+			for(int i=0;i<size;i++) {				
+				rs.next();
+				post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getFloat(4),rs.getFloat(5),rs.getInt(6),
+						rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(10),rs.getInt(11),rs.getInt(12),rs.getString(13),
+						rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18));
+			}
+		}catch (Exception e) {
+			System.out.println( e.getMessage());
+		}
+		return post;
+	}
+	
 	/*
 	 * this function can shows posts
 	 * created by owners in the portal
@@ -79,9 +115,12 @@ public class DBQuerySingleton {
 	 * it takes the pageIndex and
 	 * shows the Posts according to it
 	 */
-	public Post[] showPortalPosts(int pageIndex) {
+	public Post[] showPortalPosts(int pageNo,int loadSize) {
 		Post[] post=null;
-		String query="SELECT `postText`, `postDate`, `postTime`, `lat`, `lang` FROM `ownerpost` ORDER BY `postDate` DESC, `postTime` DESC";
+		String query="SELECT `postText`,`postDate`,`postTime`,`lat`,`lang`,`houseNo`,`flatNo`,`floorNo`,`size`,"
+				+ "`noBedRoom`,`noBathRoom`,`price`,`flatPic`,`facing`,`roadNo`,`blockNo`,`areaName`,`district`"
+				+ " FROM `ownerpost`,`flat`,`road` WHERE ownerpost.flatId = flat.flatId AND flat.roadId = road.roadId"
+				+ " ORDER BY `postDate` DESC, `postTime` DESC";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
@@ -93,17 +132,18 @@ public class DBQuerySingleton {
 			
 			//-------------------keeps the result set data into the array
 			rs.beforeFirst();
-			for(int i=10*(pageIndex-1);i<10*pageIndex;i++) {
+			for(int i=loadSize*(pageNo-1);i<loadSize*pageNo;i++) {
 				if(i<size) {
 					rs.next();
-					post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getFloat(4),rs.getFloat(5));
+					post[i]=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getFloat(4),rs.getFloat(5),rs.getInt(6),
+							rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(10),rs.getInt(11),rs.getInt(12),rs.getString(13),
+							rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18));
 				}				
 			}
 		}catch (Exception e) {
 			System.out.println( e.getMessage());
 		}
-		return post;
-		
+		return post;		
 	}
 	
 	/*
@@ -112,12 +152,18 @@ public class DBQuerySingleton {
 	 */
 	public Post postDetails(int postId) {
 		Post post=null;
-		String query="SELECT `postText`, `postDate`, `postTime`, `lat`, `lang` FROM `ownerpost` Where `postId`="+postId;
+		String query="SELECT `postText`,`postDate`,`postTime`,`lat`,`lang`,`houseNo`,`flatNo`,`floorNo`,`size`,"
+				+ "`noBedRoom`,`noBathRoom`,`price`,`flatPic`,`facing`,`roadNo`,`blockNo`,`areaName`,`district`" + 
+				"FROM `ownerpost`,`flat`,`road`" + 
+				"WHERE ownerpost.flatId = flat.flatId AND flat.roadId = road.roadId AND `postId` = \""+postId+
+				"\" ORDER BY `postDate` DESC, `postTime` DESC";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
-			post=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getFloat(4),rs.getFloat(5));
+			post=new Post(rs.getString(1),rs.getString(2),rs.getString(3),rs.getFloat(4),rs.getFloat(5),rs.getInt(6),
+					rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(10),rs.getInt(11),rs.getInt(12),rs.getString(13),
+					rs.getString(14),rs.getInt(15),rs.getString(16),rs.getString(17),rs.getString(18));
 		}catch (Exception e) {
 			System.out.println( e.getMessage() );
 		}
