@@ -1,6 +1,5 @@
 package database;
 
-import java.math.BigInteger;
 import java.sql.*;
 
 import security.Hash;
@@ -191,15 +190,30 @@ public class DBQuerySingleton {
 	}
 	
 	/*
+	 * this function can update the name, contactNo, address,
+	 * email, pass of the database provided the Nid
+	 */
+	public void editPost(String Nid,String Name,String ContactNo,String Address,String Email,String Pass) {
+		String encriptedPass = Hash.getMd5(Pass);
+		String query="UPDATE `user` SET `name`=\""+Name+"\",`contactNo`=\""+ContactNo+"\",`address`=\""+Address+"\",`email`=\""+Email+"\",`password`=\""+encriptedPass+"\" WHERE nid=\""+Nid+"\"";
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.executeUpdate();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	/*
 	 * this function can entry an user into the database
 	 * if there is no problem with duplication of same user the function returns "Insertion Successful"
 	 * else the function returns the problematic entry & key
 	 */
-	public String signUp(BigInteger Nid,String Name,String ContactNo,String Address,String Email,String Pass) {
+	public String signUp(String Nid,String Name,String ContactNo,String Address,String Email,String Pass) {
 		String message="Insertion Successful";
 		String encriptedPass = Hash.getMd5(Pass); 
-		String query="INSERT INTO `user`(`nid`, `name`, `contactNo`, `address`, `email`, `password`) VALUES ("
-				+ Nid+",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Email+"\",\""+encriptedPass+"\")";
+		String query="INSERT INTO `user`(`nid`, `name`, `contactNo`, `address`, `email`, `password`) VALUES (\""
+				+ Nid+"\",\""+Name+"\",\""+ContactNo+"\",\""+Address+"\",\""+Email+"\",\""+encriptedPass+"\")";
 		System.out.println(query);
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
@@ -209,6 +223,7 @@ public class DBQuerySingleton {
 		}
 		return message;
 	}
+
 	
 	/*
 	 * this function can check if the user is giving right email and password to log in.
